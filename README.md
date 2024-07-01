@@ -1,3 +1,3 @@
 # Portfolio
 
-Step attuale --- > Creazione Design e prototipazione in Figma
+Step attuale --- > Creazione Design e prototipazione in Figma.
