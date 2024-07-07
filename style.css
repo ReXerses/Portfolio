@@ -77,8 +77,50 @@
 
   /* Chi sono */
 
-  .containerChiSono {
-    
+  .contenuto {
+    display: flex;
+    flex: 1;
+    /* justify-content: center; */
+    align-items: center;
+    /* width: 100%; */
+    /* height: 100vh; */
+  }
+
+  .firstHalf {
+    display: flex;
+    min-height: 50vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .slogan {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2.0rem;
+    width: min(50vw, 350px);
+    font-weight: 900;
+    padding: 0.8rem;
+    background-color: black;
+    color: white;
+    border-radius: 16px;
+    transform: rotate(13deg) translate(-5px, -15px);
+  }
+
+  .secondHalf {
+    background-color: blue;
+    flex: 1;
+  }
+
+  .contenitoreFoto {
+    background-image: url(media/foto-cv.jpg);
+    background-size: 110% 110%;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    z-index: 1;
   }
 
 
