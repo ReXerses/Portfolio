@@ -80,10 +80,8 @@
   .contenuto {
     display: flex;
     flex: 1;
-    /* justify-content: center; */
+    flex-wrap: wrap;
     align-items: center;
-    /* width: 100%; */
-    /* height: 100vh; */
   }
 
   .firstHalf {
@@ -110,7 +108,12 @@
   }
 
   .secondHalf {
-    background-color: blue;
+    display: flex;
+    min-height: 50vh;
+    padding-bottom: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     flex: 1;
   }
 
@@ -123,7 +126,29 @@
     z-index: 1;
   }
 
+  .presentazione {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: min(50vw, 350px);
+    padding: 1.5rem;
+    background-color: black;
+    color: white;
+    border-radius: 16px;
+    transform: rotate(-3deg);
+    filter: drop-shadow(5px 2px 2px #b5b5b5);
+  }
+  
+  .presentazione h2 {
+    font-size: 2rem;
+  }
 
+  .presentazione span {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+  }
   /* Lavori */
   #lavori {
     background-color: aqua;
