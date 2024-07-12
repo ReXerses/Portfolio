@@ -1,0 +1,23 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Creazione Design e prototipazione in Figma. <br>\r Creazione della prima section (Presentazione). <br>\r Step attuale --- > Creazione della seconda section (Lavori). <br>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReXerses/Portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ReXerses/Portfolio/issues"
+  },
+  "homepage": "https://github.com/ReXerses/Portfolio#readme",
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  }
+}
