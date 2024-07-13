@@ -1,3 +1,8 @@
+@font-face {
+  font-family: jockey;
+  src: url(./media/JockeyOne-Regular.ttf);
+}
+
 :root {
     --colback: #F0F0F0;
     color-scheme: light;
@@ -10,6 +15,7 @@
     display: flex;
     max-height: 100vh;
     flex-direction: column;
+    font-family: jockey, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 
   .smooth {
@@ -72,6 +78,11 @@
   li a {
     text-decoration: none;
     color: black;
+  }
+
+  li:hover {
+    transform: scale(1.2);
+    text-decoration-line: underline;
   }
 
 
@@ -150,10 +161,86 @@
     letter-spacing: 2px;
   }
   /* Lavori */
-  #lavori {
-    background-color: aqua;
+  .titoloLavoro {
+    flex: 2;
+    align-self: center;
+    align-content: space-around;
+    margin: 0px;
+    font-size: 3rem;
   }
 
+  .carosello-container {
+    padding: 1rem;
+    background-color: black;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    filter: drop-shadow(5px 2px 2px #b5b5b5);
+  }
+
+  .carosello {
+    position: relative;
+    display: flex;
+  }
+
+  #prev {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    flex: 1;
+    height: 100%;
+    background-image: url(./media/left.svg);
+    width: 40px;
+    background-size: 100% 100%;
+    padding: 0px;
+    border: 0px;
+    opacity: 0.1;
+  }
+
+  #next {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    flex: 1;
+    height: 100%;
+    background-image: url(./media/right.svg);
+    width: 40px;
+    background-size: 100% 100%;
+    padding: 0px;
+    border: 0px;
+    opacity: 0.1;
+  }
+
+  #next:hover, #prev:hover {
+    background-color: #333;
+    opacity: 1;
+  }
+
+  .homepage {
+    width: min(50vw, 650px);
+  }
+
+  .carosello-navigazione {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    min-width: 300px;
+    max-width: 650px;
+  }
+
+  .linksInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .linksInfo * {
+    height: 50px;
+    filter: contrast(1.8);
+  }
+
+  .linksInfo a:hover {
+    transform: scale(1.1);
+  }
 
   /* Contatti */
 
@@ -162,3 +249,21 @@
   }
 
   /* test */
+
+  .dots {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+}
+
+.active {
+    background: #333;
+}
