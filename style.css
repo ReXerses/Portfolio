@@ -65,7 +65,7 @@
     height: 60px;
   }
 
-  ul {
+  .desktop ul {
     display: flex;
     justify-content: space-between;
     list-style: none;
@@ -143,13 +143,19 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    width: min(50vw, 350px);
+    width: min(55vw, 350px);
     padding: 1.5rem;
     background-color: black;
     color: white;
     border-radius: 16px;
     transform: rotate(-3deg);
     filter: drop-shadow(5px 2px 2px #b5b5b5);
+  }
+
+  .presentazione:hover {
+    color: black;
+    background-color: #fff;
+    transform: scale(1.2);
   }
   
   .presentazione h2 {
@@ -216,7 +222,7 @@
   }
 
   .homepage {
-    width: min(50vw, 650px);
+    width: min(70vw, 650px);
   }
 
   .carosello-navigazione {
@@ -226,29 +232,6 @@
     min-width: 300px;
     max-width: 650px;
   }
-
-  .linksInfo {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  .linksInfo * {
-    height: 50px;
-    filter: contrast(1.8);
-  }
-
-  .linksInfo a:hover {
-    transform: scale(1.1);
-  }
-
-  /* Contatti */
-
-  #contatti {
-    background-color: blueviolet;
-  }
-
-  /* test */
 
   .dots {
     display: flex;
@@ -267,3 +250,253 @@
 .active {
     background: #333;
 }
+
+  .linksInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .linksInfo * {
+    height: 50px;
+    filter: contrast(1.8);
+  }
+
+  .linksInfo a:hover {
+    transform: scale(1.1);
+  }
+
+  /* Contatti */
+  .section-header {
+    text-align: center;
+    margin: 0 auto;
+    padding: 40px 0;
+    font: 300 60px 'Oswald', sans-serif;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    filter: drop-shadow(5px 2px 2px #b5b5b5);
+  }
+  
+  .contact-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto;
+    padding: 25px;
+    position: relative;
+    gap: 2rem;
+    background-color: black;
+    border-radius: 16px;
+    flex-wrap: wrap;
+    width: min(79vw, 840px);
+    filter: drop-shadow(5px 2px 2px #b5b5b5);
+  }
+  
+  /* Left contact page */
+
+  .form-group {
+    width: min(394px, 70vw);
+  }
+
+  .col-sm-12 {
+    display: flex;
+    width: 100%;
+  }
+
+  .form-horizontal {
+    max-width: 400px;
+    font-family: 'Lato';
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
+  .form-control, 
+  textarea {
+    max-width: 400px;
+    background-color: #000;
+    color: #fff;
+    letter-spacing: 1px;
+    flex: 1;
+    width: min(394px, 70vw);
+    height: 30px;
+  }
+
+  .fa-solid {
+    margin-top: 8px;
+    margin-bottom: 7px;
+  }
+  
+  .send-button {
+    margin-top: 15px;
+    height: 34px;
+    width: min(394px, 70vw);
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+  }
+  
+  .alt-send-button {
+    height: 34px;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .send-text {
+    display: block;
+    margin-top: 10px;
+    font: 700 12px 'Lato', sans-serif;
+    letter-spacing: 2px;
+  }
+  
+  .alt-send-button:hover {
+    transform: translate3d(0px, -29px, 0px);
+  }
+  
+  /* Parte destra dei contatti */
+  .direct-contact-container {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Email Section */
+  .contact-list {
+    list-style-type: none;
+    margin-left: -30px;
+    padding-right: 20px;
+    align-content: center;
+  }
+  
+  .list-item {
+    line-height: 4;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+  hr {
+    width: 100%;
+  }
+  
+  .contact-text {
+    font: 300 18px 'Lato', sans-serif;
+    letter-spacing: 1.9px;
+    
+  }
+  
+  .contact-text a {
+    color: white;
+    text-decoration: none;
+    transition-duration: 0.2s;
+  }
+  
+  .contact-text a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  
+  /* Icone Social Media */
+  .social-media-list {
+    position: relative;
+    font-size: 22px;
+    text-align: center;
+    align-content: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  
+  .social-media-list li a {
+    color: #fff;
+    z-index: 2;
+    position: relative;
+  }
+  
+  .social-media-list li {
+    position: relative; 
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    margin: 10px 10px;
+    line-height: 60px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: rgb(27,27,27);
+    cursor: pointer; 
+    transition: all .2s ease-in-out;
+  }
+  
+  .social-media-list li:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 0 1px #fff;
+    transition: all .2s ease-in-out;
+  }
+  
+  .social-media-list li:hover {
+    background-color: #fff; 
+  }
+  
+  /* cerchio dietro le icone */
+  .social-media-list li:hover:after {
+    opacity: 1;  
+    transform: scale(1.12);
+    transition-timing-function: cubic-bezier(0.37,0.74,0.15,1.65);
+  }
+  
+  .social-media-list li:hover a {
+    color: #000;
+  }
+  
+  .copyright {
+    font: 200 14px 'Oswald', sans-serif;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  
+  hr {
+    border-color: rgba(255,255,255,.6);
+  }
+  
+  /* Media Queries */
+  @media screen and (max-width: 930px) {
+    .contact-wrapper {
+      justify-content: center;
+    }
+
+    .section-header {
+      font: 300 40px 'Oswald', sans-serif;
+    }
+    
+  }
+
+
+  /* test */
+.hidden {
+    display: none;
+}
+.visible {
+    display: block;
+    background-color: #4caf50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+    border-radius: 5px;
+}
+  

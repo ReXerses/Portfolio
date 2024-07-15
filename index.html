@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Portfolio</title>
 </head>
 <body>
@@ -94,9 +95,76 @@
         </section>
 
         <section id="contatti">
-                <div class="firstHalf"></div>
-                <div class="secondHalf"></div>
+
+                <h1 class="section-header">Contatti</h1>
+                <div class="contact-wrapper">
+                    <form id="contact-form" class="form-horizontal"  role="form" action="https://api.web3forms.com/submit" method="POST">
+
+                        <!-- Replace with your Access Key -->
+                        <input type="hidden" name="access_key" value="baeee5d0-9f96-4beb-b92a-094abafb786a">
+ 
+                        <!-- Custom Confirmation / Success Page   FARE LA PAGINA CUSTOM DI RINGRAZIAMENTI -->
+                        <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
+            
+
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                              <input type="text" class="form-control" id="name" placeholder="NOME" name="name" value="" required>
+                            </div>
+                          </div>
+                    
+                          <div class="form-group">
+                            <div class="col-sm-12">
+                              <input type="email" class="form-control" id="email" placeholder="EMAIL" name="email" value="" required>
+                            </div>
+                          </div>
+                    
+                          <textarea class="form-control" rows="10" placeholder="MESSAGGIO" name="message" required></textarea>
+
+                          <!-- Honeypot Spam Protection -->
+                          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                          
+                          <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+                            <div class="alt-send-button">
+                              <i class="fa-solid fa-paper-plane"></i><span class="send-text">INVIA!</span>
+                            </div>
+                          
+                          </button>
+                          
+                        </form>
+                        
+                      <!-- Left contact page --> 
+                        
+                          <div class="direct-contact-container">
+                    
+                            <ul class="contact-list">
+                              
+                              <li class="list-item"><i class="fa-regular fa-envelope"></i><span class="contact-text"><a href="mailto:#" title="Send me an email">genna.damico@gmail.com</a></span></i></li>
+                              
+                            </ul>
+                    
+                            <hr>
+                            <ul class="social-media-list">
+                              <li><a href="https://github.com/ReXerses" target="_blank" class="contact-icon">
+                                <i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                              </li>
+                              <li class="discord">
+                                <a href="#" target="_blank" class="contact-icon discordUser">
+                                    <i class="fab fa-discord" aria-hidden="true"></i>
+                                </a>
+                                <span id="userName-text" class="hidden">rexerses</span>
+                            </li>
+                            </ul>
+                            <span id="copy-notification" class="hidden">Username Discord copiato!</span>
+                            <hr>
+                    
+                            <div class="copyright">&copy; TUTTI I DIRITTI RISERVATI</div>
+                    
+                          </div>
+
+                </div>
         </section>
+       
     </main>
     
 </body>

@@ -1,3 +1,12 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 import { Lavori } from './lavori.js';
 const titoloLavori = document.querySelector('.titoloLavoro');
 const homepages = document.querySelector('.homepage');
@@ -81,3 +90,70 @@ dots.forEach((dot, index) => {
 });
 // primo paint della sezione
 updateCarosello(currentIndex);
+/*  Form contatto  */
+const form = document.getElementById('form');
+const result = document.getElementById('result');
+if (form && result) {
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const object = {};
+        formData.forEach((value, key) => {
+            object[key] = value;
+        });
+        const json = JSON.stringify(object);
+        result.innerHTML = "Please wait...";
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+            .then((response) => __awaiter(this, void 0, void 0, function* () {
+            let json = yield response.json();
+            if (response.status === 200) {
+                result.innerHTML = "Form submitted successfully";
+            }
+            else {
+                console.log(response);
+                result.innerHTML = json.message;
+            }
+        }))
+            .catch(error => {
+            console.log(error);
+            result.innerHTML = "Something went wrong!";
+        })
+            .then(() => {
+            form.reset();
+            setTimeout(() => {
+                result.style.display = "none";
+            }, 3000);
+        });
+    });
+}
+/* Event listener per copiare l'userName discord */
+document.addEventListener("DOMContentLoaded", () => {
+    const discordUser = document.querySelector(".discordUser");
+    const userNameTextElement = document.getElementById("userName-text");
+    const notification = document.getElementById("copy-notification");
+    if (discordUser && userNameTextElement && notification) {
+        discordUser.addEventListener("click", (event) => {
+            event.preventDefault();
+            const userNameText = userNameTextElement.textContent;
+            if (userNameText) {
+                navigator.clipboard.writeText(userNameText).then(() => {
+                    notification.classList.remove("hidden");
+                    notification.classList.add("visible");
+                    setTimeout(() => {
+                        notification.classList.remove("visible");
+                        notification.classList.add("hidden");
+                    }, 2000);
+                }).catch(() => {
+                    console.error("Errore nella copia dell'UserName");
+                });
+            }
+        });
+    }
+});

@@ -93,3 +93,80 @@ dots.forEach((dot, index) => {
 // primo paint della sezione
 
 updateCarosello(currentIndex);
+
+/*  Form contatto  */
+
+const form = document.getElementById('form') as HTMLFormElement | null;
+const result = document.getElementById('result') as HTMLElement | null;
+
+if (form && result) {
+    form.addEventListener('submit', function (e: Event) {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const object: { [key: string]: any } = {};
+        
+        formData.forEach((value, key) => {
+            object[key] = value;
+        });
+        
+        const json = JSON.stringify(object);
+        result.innerHTML = "Please wait...";
+        
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let json = await response.json();
+            if (response.status === 200) {
+                result.innerHTML = "Form submitted successfully";
+            } else {
+                console.log(response);
+                result.innerHTML = json.message;
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            result.innerHTML = "Something went wrong!";
+        })
+        .then(() => {
+            form.reset();
+            setTimeout(() => {
+                result.style.display = "none";
+            }, 3000);
+        });
+    });
+}
+
+/* Event listener per copiare l'userName discord */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const discordUser = document.querySelector(".discordUser") as HTMLAnchorElement;
+    const userNameTextElement = document.getElementById("userName-text") as HTMLSpanElement;
+    const notification = document.getElementById("copy-notification") as HTMLSpanElement;
+
+    if (discordUser && userNameTextElement && notification) {
+        discordUser.addEventListener("click", (event) => {
+            event.preventDefault();
+            const userNameText = userNameTextElement.textContent;
+
+            if (userNameText) {
+                navigator.clipboard.writeText(userNameText).then(() => {
+                    notification.classList.remove("hidden");
+                    notification.classList.add("visible");
+                    setTimeout(() => {
+                        notification.classList.remove("visible");
+                        notification.classList.add("hidden");
+                    }, 2000);
+                }).catch(() => {
+                    console.error("Errore nella copia dell'UserName");
+                });
+            }
+        });
+    }
+});
