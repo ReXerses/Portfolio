@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="media/fav.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
     <title>Portfolio</title>
 </head>
 <body>
     
     <main class="smooth">
+
         <header>
             <nav class="desktop">
 
@@ -18,19 +19,42 @@
                     <img src="./media/logoP.png" alt="Logo del sito">
                 </div>
 
-                <ul>
+                <ul class="menu">
                     <li><a href="#chiSono">Chi sono</a></li>
                     <li><a href="#lavori">Lavori</a></li>
                     <li><a href="#contatti">Contatti</a></li>
                 </ul>
 
             </nav>
+
+            <!-- menù mobile -->
+            <nav class="mobile">
+
+                <div class="hamburger" onclick="toggleMenu()">
+
+                    <svg id="hamburger" class="Header__toggle-svg" viewbox="0 0 60 40">
+                      <g stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                        <path id="top-line" d="M10,10 L50,10 Z"></path>
+                        <path id="middle-line" d="M10,20 L50,20 Z"></path>
+                        <path id="bottom-line" d="M10,30 L50,30 Z"></path>
+                      </g>
+                    </svg>
+  
+                </div>
+
+                <div class="mobile-menu" id="mobileMenu">
+                    <a href="#chiSono" onclick="toggleMenu()">Chi sono</a>
+                    <a href="#lavori" onclick="toggleMenu()">Lavori</a>
+                    <a href="#contatti" onclick="toggleMenu()">Contatti</a>
+                </div>
+            </nav>
+
         </header>
 
         <section id="chiSono">
 
             <div class="contenuto">
-                <div class="firstHalf">
+                <div class="firstHalf fotoCV">
                     
                     <div class="contenitoreFoto"></div>
                     <div class="slogan">
@@ -55,7 +79,7 @@
         <section id="lavori">
             <h2 class="titoloLavoro">Lavori</h2>
             <div class="contenuto">
-                <div class="firstHalf">
+                <div class="firstHalf fotoLavori">
                     <div class="carosello-container">
 
                         <div class="carosello">
@@ -86,7 +110,7 @@
                 </div>
                 <div class="secondHalf">
                     <div class="contenitorePresentazione">
-                        <div class="presentazione">
+                        <div class="presentazione contenitoreDescrizione">
                             <span class="descrizione">Sono un appassionato laureato in informatica che continua a coltivare la sua passione per lo sviluppo web attraverso l’autoapprendimento. Attualmente, sto seguendo il percorso di studio offerto da The Odin Project per affinare le mie competenze.</span>
                         </div>
                     </div>

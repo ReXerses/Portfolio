@@ -2,6 +2,91 @@
   font-family: jockey;
   src: url(./media/JockeyOne-Regular.ttf);
 }
+/*  ANIMAZIONI  */
+
+/* animazioni svg hamburger */
+@keyframes up-rotate {
+	0% {
+		animation-timing-function: cubic-bezier(0.16, -0.88, 0.97, 0.53);
+		transform: translateY(0px);
+	}
+	30% {
+		transform-origin: center;
+		animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+		transform: translateY(-10px);
+	}
+	100% {
+		transform-origin: center;
+		transform: translateY(-10px) rotate(45deg) scale(0.9);
+	}
+}
+
+@keyframes down-rotate {
+	0% {
+		animation-timing-function: cubic-bezier(0.16, -0.88, 0.97, 0.53);
+		transform: translateY(0px);
+	}
+	30% {
+		transform-origin: center;
+		animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+		transform: translateY(10px);
+	}
+	100% {
+		transform-origin: center;
+		transform: translateY(10px) rotate(-45deg) scale(0.9);
+	}
+}
+
+@keyframes hide {
+	29% {
+		opacity: 1;
+	}
+	30% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+/* effetto bounce menu mobile */
+@keyframes bounce {
+  0% {
+      transform: scaleY(0);
+  }
+  70% {
+      transform: scaleY(1.1);
+  }
+  100% {
+      transform: scaleY(1);
+  }
+}
+
+/* animazioni presentazioni/foto */
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* FINE ANIMAZIONI  */
 
 :root {
     --colback: #F0F0F0;
@@ -38,6 +123,7 @@
     justify-content: center;
     font-size: 1rem;
     scroll-snap-align: center;
+    padding-top: 4vh;
   }
 
   /* navbar */
@@ -50,7 +136,7 @@
 
   .desktop {
     display: flex;
-    height: 60px;
+    height: 45px;
     padding: 5px 3rem;
     align-items: center;
     background-color: white;
@@ -59,13 +145,14 @@
 
   .logo, ul {
     flex: 1;
+    height: 55px;
   }
 
   .logo img {
-    height: 60px;
+    height: 55px;
   }
 
-  .desktop ul {
+  .desktop .menu {
     display: flex;
     justify-content: space-between;
     list-style: none;
@@ -73,6 +160,7 @@
     margin: 0px;
     padding: 0px;
     font-size: 1.2rem;
+    align-items: center;
   }
 
   li a {
@@ -85,8 +173,105 @@
     text-decoration-line: underline;
   }
 
+  /* Menu mobile */
 
-  /* Chi sono */
+  .svgAttiva {
+    #top-line {
+      animation: down-rotate 0.6s ease-out both;
+    }
+    #bottom-line {
+      animation: up-rotate 0.6s ease-out both;
+    }
+    #middle-line {
+      animation: hide 0.6s ease-out forwards;
+    }
+  }
+  
+  .hamburger {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .hamburger svg {
+    fill: none;
+    stroke: white;
+    stroke-width: 6;
+    stroke-linecap: round;
+    transition: transform 0.3s ease;
+  }
+  
+  .hamburger .line {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .hamburger.active .line1 {
+    transform: translateY(21px) rotate(45deg);
+  }
+  
+  .hamburger.active .line2 {
+    opacity: 0;
+  }
+  
+  .hamburger.active .line3 {
+    transform: translateY(-21px) rotate(-45deg);
+  }
+  
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #1E1F23;
+    position: fixed;
+    top: 60px;
+    width: 100%;
+    z-index: 10;
+    animation: bounce 500ms ease-in-out;
+    align-items: center;
+  }
+  
+  .mobile-menu.open {
+    display: flex;
+    position: fixed;
+    left: 0;
+    height: 100%;
+    top: 0;
+  }
+  
+  .mobile-menu a {
+    padding: 1em;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+    width: 100%;
+    flex: 1;
+    align-content: center;
+  }
+
+  svg {
+    width: 50px;
+  }
+  
+  #top-line,
+  #bottom-line,
+  #middle-line {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  
+  .svgAttiva {
+    #top-line {
+      animation: down-rotate 0.6s ease-out both;
+    }
+    #bottom-line {
+      animation: up-rotate 0.6s ease-out both;
+    }
+    #middle-line {
+      animation: hide 0.6s ease-out forwards;
+    }
+  }
+
+
+  /* Section Chi sono */
 
   .contenuto {
     display: flex;
@@ -155,7 +340,7 @@
   .presentazione:hover {
     color: black;
     background-color: #fff;
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
   
   .presentazione h2 {
@@ -166,7 +351,17 @@
     font-size: 1.3rem;
     letter-spacing: 2px;
   }
-  /* Lavori */
+
+  .animate-firstHalf {
+    animation: slideInFromLeft 1s ease-out forwards;
+  }
+
+  .animate-presentazione {
+    animation: slideInFromRight 1s ease-out forwards;
+  }
+
+  /* Section Lavori */
+
   .titoloLavoro {
     flex: 2;
     align-self: center;
@@ -229,7 +424,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 2rem;
-    min-width: 300px;
+    min-width: 250px;
     max-width: 650px;
   }
 
@@ -266,12 +461,13 @@
     transform: scale(1.1);
   }
 
-  /* Contatti */
+  /* Section Contatti */
+
   .section-header {
     text-align: center;
     margin: 0 auto;
     padding: 40px 0;
-    font: 300 60px 'Oswald', sans-serif;
+    font: 300 60px jockey, sans-serif;
     color: #000000;
     text-transform: uppercase;
     letter-spacing: 6px;
@@ -358,6 +554,7 @@
   }
   
   /* Parte destra dei contatti */
+
   .direct-contact-container {
     max-width: 400px;
     display: flex;
@@ -365,6 +562,7 @@
   }
   
   /* Email Section */
+
   .contact-list {
     list-style-type: none;
     margin-left: -30px;
@@ -403,6 +601,7 @@
   
   
   /* Icone Social Media */
+
   .social-media-list {
     position: relative;
     font-size: 22px;
@@ -452,6 +651,7 @@
   }
   
   /* cerchio dietro le icone */
+
   .social-media-list li:hover:after {
     opacity: 1;  
     transform: scale(1.12);
@@ -473,24 +673,12 @@
     border-color: rgba(255,255,255,.6);
   }
   
-  /* Media Queries */
-  @media screen and (max-width: 930px) {
-    .contact-wrapper {
-      justify-content: center;
-    }
+  /* copia username discord */
 
-    .section-header {
-      font: 300 40px 'Oswald', sans-serif;
-    }
-    
-  }
-
-
-  /* test */
-.hidden {
+  .hidden {
     display: none;
-}
-.visible {
+  }
+  .visible {
     display: block;
     background-color: #4caf50;
     color: white;
@@ -498,5 +686,55 @@
     text-align: center;
     z-index: 1000;
     border-radius: 5px;
-}
+  }
+  
+    /* Media Queries */
+    @media screen and (max-width: 930px) {
+      .smooth {
+        scroll-snap-type: none;
+      }
+
+      .presentazione:hover {
+        color: black;
+        background-color: #fff;
+        transform: scale(1.0);
+      }
+
+      .contact-wrapper {
+        justify-content: center;
+      }
+  
+      .section-header {
+        font: 300 40px jockey, sans-serif;
+      }
+  
+      .desktop {
+        display: none;
+      }
+      
+      .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 20;
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        height: 50px;
+        background-color: black;
+        border-radius: 50%;
+      }
+      
+      .mobile-menu {
+        display: none;
+      }
+
+      .titoloLavoro {
+        font-size: 2rem;
+      }
+      
+    }
+
+
+  /* test */
   
