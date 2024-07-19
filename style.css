@@ -606,10 +606,12 @@
     position: relative;
     font-size: 22px;
     text-align: center;
-    align-content: center;
     width: 100%;
     margin: 0 auto;
     padding: 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
   
   .social-media-list li a {
