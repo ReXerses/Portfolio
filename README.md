@@ -7,4 +7,5 @@ Creazione della terza section (Contatti). <br>
 Creazione pagina successo invio form.  <br>
 Ottimizzazioni mobile. <br>
 Aggiunta animazioni. <br>
-Step attuale --- > Ottimizzazioni accessibilità/prestazioni (lighthouse).
+Ottimizzazioni accessibilità/prestazioni (lighthouse). <br>
+Step attuale --- > end?
